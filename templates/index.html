@@ -13,8 +13,8 @@
 <body>
     <main>
         <header></header>
-
         <div class="team_times">
+            <h1>Local Team Times</h1>
             <table class="team_table">
                 <thead>
                     <tr>
@@ -32,8 +32,8 @@
                 </tbody>
             </table>
         </div>
-
         <div class="live_schedule">
+            <h1>Live Q & A Schedules</h1>
             {% for course, times in qna_times.items() %}
             <table class="{{ course | lower | replace(' ', '_') }}_table">
                 <thead>
@@ -65,10 +65,13 @@
                 <option value="America/Chicago">Central Time (US & Canada)</option>
                 <option value="America/Denver">Mountain Time (US & Canada)</option>
                 <option value="America/Los_Angeles">Pacific Time (US & Canada)</option>
-                <option value="Europe/London">London</option>
-                <option value="Europe/Paris">Paris</option>
+                <!-- <option value="Europe/London">London</option>
+                <option value="Europe/Paris">Paris</option> -->
                 <option value="Australia/Sydney">Sydney</option>
                 <option value="Australia/Brisbane">Brisbane</option>
+                <option value="Australia/Perth">Perth</option>
+                <option value="Australia/Adelaide">Adelaide</option>
+                <option value="Australia/Melbourne">Melbourne</option>
             </select>
         </div>
 

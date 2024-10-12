@@ -16,11 +16,17 @@ body {
     align-items: center;
 }
 
+h1 {
+    color: var(--mainText);
+    text-align: center;
+    width: 50vw;
+}
+
 table {
     background-color: var(--chSpecial);
     border-radius: 0.5rem;
     width: 50vw;
-    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 table th {
@@ -50,8 +56,48 @@ table td {
 .nutrition_l2_table,
 .business_mastery_table {
     text-align: center;
+    padding: 10px;
+}
+
+.nutrition_l1_table td,
+.nutrition_l2_table td,
+.business_mastery_table td,
+.team_table td {
+    font-size: 1.2rem;
 }
 
 .schedule_heading {
     font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+
+.timezone_selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+.timezone_selector label {
+    color: var(--mainText);
+}
+
+select {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--chSpecial);
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+}
+
+@media only screen and (max-width: 750px) {
+    table, h1 {
+        width: 80vw;
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    h1 {
+        font-size: 1.5rem;
+    }
 }

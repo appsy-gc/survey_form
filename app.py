@@ -19,7 +19,7 @@ def index():
 
     for person, tz_name in people_timezones.items():
         tz = pytz.timezone(tz_name)
-        current_time = datetime.now(tz).strftime("%H:%M:%S - %d/%m/%Y")
+        current_time = datetime.now(tz).strftime("%H:%M - %d/%m/%y")
         people_times.append({"name": person, "current_time": current_time})
 
     # QnA times (in EST)
