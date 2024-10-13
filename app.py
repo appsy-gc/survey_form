@@ -29,7 +29,7 @@ def team():
 
     for person, tz_name in people_timezones.items():
         tz = pytz.timezone(tz_name)
-        current_time = datetime.now(tz).strftime("%H:%M - %d/%m/%y")
+        current_time = datetime.now(tz).strftime("%H:%M - %a %d/%m/%y")
         people_times.append({"name": person, "current_time": current_time})
 
     return render_template("team.html", people_times=people_times)

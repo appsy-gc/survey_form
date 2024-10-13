@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
     <link rel="stylesheet" href="/static/perform-styles.css">
+    <link rel="icon" href="../static/images/chflavicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js"></script>
     <title>NCI Team and Course Information</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,9 +15,24 @@
 <main>
     <div class="body_container">
         <header>
-            <div class="header_image">
-                <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+            <div class="header-grid">
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="header_image">
+                    <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+                </div>
             </div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
+                    <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
+                    <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+                    <li><a href="{{ url_for('performance') }}">Course Performance</a></li>
+                </ul>
+            </nav>
         </header>
         <body>     
             <div class="course_stats">
@@ -85,15 +102,20 @@
                     </tbody>
                 </table>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const hamburgerMenu = document.getElementById('hamburger-menu');
+                    const navMenu = document.getElementById('nav-menu');
+            
+                    hamburgerMenu.addEventListener('click', function () {
+                        navMenu.classList.toggle('show');
+                    });
+                });
+            </script>
         </body>
     </div>  
     <footer>
-        <ul>
-            <li><a href="{{ url_for('index') }}">GO the Fuck HOME</a></li>
-            <li><a href="{{ url_for('performance') }}">Course Performance Page</a></li>
-            <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
-            <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
-        </ul>
+        Appsy 🤓 © 2024
     </footer>
 </main>
 </html>

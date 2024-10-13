@@ -1,57 +1,3 @@
-:root {
-    /* Global Variables */
-    --nciBackground: #3498db;
-    --nciSpecial: #d0fa69;
-    --chSpecial: #99c93e;
-    --mainText: white;
-    --tableWidth: 60vw;
-    --boxShadow: 2px 2px 5px 0px rgba(255,255,255,1);
-    --textShadow: 2px 2px 2px rgba(181, 239, 73, 0.73);
-    
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
-    background-color: black;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100vw;
-    height: 100vh;
-    margin: auto;
-}
-
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-}
-
-.header_image {
-    text-align: center;
-}
-
-img.header_logo {
-    width: 40%;
-}
-
-body {
-    display: flex;
-}
-
-h1 {
-    color: var(--mainText);
-    text-align: center;
-    width: var(--tableWidth);
-    text-shadow: var(--textShadow);
-}
-
-p {
-    color: var(--mainText);
-}
-
 table {
     background-color: var(--chSpecial);
     border-radius: 0.5rem;
@@ -137,13 +83,6 @@ select {
     font-weight: bold;
     height: 30px;
     border-radius: 5px;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
 }
 
 @media only screen and (max-width: 750px) {

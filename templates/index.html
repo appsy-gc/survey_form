@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" href="../static/images/chflavicon.png">
     <title>NCI Team and Course Information</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,30 +13,64 @@
 <main>
     <div class="body_container">
         <header>
-            <div class="header_image">
-                <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+            <div class="header-grid">
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="header_image">
+                    <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+                </div>
             </div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">HOME</a></li>
+                    <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
+                    <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+                    <li><a href="{{ url_for('performance') }}">Course Performance</a></li>
+                </ul>
+            </nav>
         </header>
         <body>   
             <div class="feature-container">
                 <div class="team-block">
-                    <a href="{{ url_for('team') }}"><img src="../static/images/team-image.png" alt="Women at beachside bar with beers in bikinis"></a>
+                    <a href="{{ url_for('team') }}" class="button-link">
+                        <button>
+                            TEAM LOCAL TIMES
+                        </button>
+                    </a>
                 </div>
                 <div class="schedule-block">
-                    <a href="{{ url_for('schedules') }}"><img src="../static/images/schedule-image.png" alt="Woman playing eletric guitar on the beach"></a>
+                    <a href="{{ url_for('schedules') }}">
+                        <button>
+                            LIVE Q&A SCHEDULES
+                        </button>
+                    </a>
                 </div>
                 <div class="performance-block">
-                    <a href="{{ url_for('performance') }}"><img src="../static/images/performance-image.png" alt="Woman at beach sitting on motorcycle"></a>
+                    <a href="{{ url_for('performance') }}">
+                        <button>
+                            COURSE PERFORMANCE
+                        </button>
+                    </a>
                 </div>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const hamburgerMenu = document.getElementById('hamburger-menu');
+                    const navMenu = document.getElementById('nav-menu');
+            
+                    hamburgerMenu.addEventListener('click', function () {
+                        navMenu.classList.toggle('show');
+                    });
+                });
+            </script>
+            
         </body>
     </div>  
     <footer>
-        <ul>
-            <li><a href="{{ url_for('performance') }}">Course Performance Page</a></li>
-            <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
-            <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
-        </ul>
+        Appsy 🤓 © 2024
     </footer>
 </main>
 </html>

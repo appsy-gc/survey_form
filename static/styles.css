@@ -22,19 +22,83 @@ main {
     margin: auto;
 }
 
+/* Header layout */
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
 }
 
+/* Header grid to align hamburger and logo */
+.header-grid {
+    display: contents;
+}
+
+/* Hamburger menu icon - always visible */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    justify-self: start; /* Align to the start of the first column */
+    transform: scale(0.75);
+}
+
+.bar {
+    width: 35px;
+    height: 5px;
+    background-color: var(--mainText);
+    margin: 4px 0;
+}
+
+/* Center header logo */
 .header_image {
+    grid-column: 2;
+    justify-self: center;
     text-align: center;
 }
 
 img.header_logo {
-    width: 40%;
+    width: 50%;
+}
+
+/* Navigation Menu - Hidden by default */
+.nav-menu {
+    display: none; /* Hidden until the hamburger menu is clicked */
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--nciBackground);
+    position: absolute;
+    top: 150px; /* Adjusted to be below the header */
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 100; /* Make sure the menu appears on top */
+}
+
+/* Navigation menu items */
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--mainText);
+    font-size: 1.5rem;
+}
+
+/* Show the nav menu when the "show" class is added */
+.nav-menu.show {
+    display: flex;
 }
 
 body {
@@ -52,6 +116,24 @@ p {
     color: var(--mainText);
 }
 
+table {
+    background-color: var(--chSpecial);
+    border-radius: 0.5rem;
+    width: var(--tableWidth);
+    margin-bottom: 30px;
+    box-shadow: var(--boxShadow);
+    max-width: 660px;
+}
+
+table th {
+    color: black;
+    font-size: 1.2rem;
+}
+
+table td {
+    color: var(--mainText)
+}
+
 .feature-container {
     display: flex;
     flex-direction: column;
@@ -63,11 +145,14 @@ p {
     justify-content: center;
     align-items: center;
     width: 250px;
-    height: 250px;
-    border: 1px solid var(--chSpecial);
+    height: 150px;
+    background-color: var(--chSpecial);
     border-radius: 10px;
     margin-bottom: 20px;
-    color: var(--mainText)
+    color: var(--mainText);
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 [class*="block"] img {
@@ -76,11 +161,42 @@ p {
     border-radius: 5px;
 }
 
+[class*="block"] a {
+    text-decoration: none;
+    color: var(--mainText)
+}
+
+button {
+    font-family: inherit;
+}
+
+[class*="block"] button {
+    width: 250px;
+    height: 150px;
+    background-color: var(--chSpecial);
+    border: 1px solid var(--chSpecial);
+    border-radius: 10px;
+    color: var(--mainText);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+[class*="block"] button:hover {
+    background-color: var(--nciBackground);
+    border: 1px solid var(--nciSpecial);
+    cursor: pointer;
+}
+
+[class*="block"] button:active {
+    color: var(--nciSpecial);
+}
+
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
+    color: var(--mainText);
 }
 
 @media only screen and (max-width: 750px) {
@@ -95,16 +211,22 @@ footer {
     }
 }
 
-@media only screen and (max-width: 500px) {
-    .nutrition_l1_table td,
-    .nutrition_l2_table td,
-    .business_mastery_table td,
-    .team_table td {
-        font-size: 1rem;
+@media only screen and (max-width: 560px) {
+    header {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
     }
 
-    table th,
-    .schedule_heading {
-        font-size: 1.2rem;
+    .header_image {
+        margin-bottom: 10px; /* Add some space below the logo */
+    }
+
+    .hamburger-menu {
+        order: 1; /* Move it to come after the header image */
+        margin-top: 10px;
+        align-items: center; /* Center the hamburger icon */
     }
 }
