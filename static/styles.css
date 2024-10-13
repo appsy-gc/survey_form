@@ -13,6 +13,13 @@
     background-color: black;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -58,6 +65,7 @@ header {
     grid-column: 2;
     justify-self: center;
     text-align: center;
+    margin-top: 20px;
 }
 
 img.header_logo {
@@ -66,16 +74,20 @@ img.header_logo {
 
 /* Navigation Menu - Hidden by default */
 .nav-menu {
-    display: none; /* Hidden until the hamburger menu is clicked */
+    opacity: 0; /* Hidden initially */
+    visibility: hidden; /* Makes sure it's not clickable */
+    height: 0; /* Zero height to collapse the menu */
+    overflow: hidden; /* Prevents overflow */
     flex-direction: column;
     align-items: center;
     background-color: var(--nciBackground);
     position: absolute;
-    top: 150px; /* Adjusted to be below the header */
+    top: 120px; /* Adjusted to be below the header */
     left: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 0; /* No padding initially */
     z-index: 100; /* Make sure the menu appears on top */
+    transition: all 0.5s ease; /* Smooth transition for height, opacity, and padding */
 }
 
 /* Navigation menu items */
@@ -98,11 +110,54 @@ img.header_logo {
 
 /* Show the nav menu when the "show" class is added */
 .nav-menu.show {
-    display: flex;
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Makes it interactable */
+    height: auto; /* Set height to auto to show content */
+    padding: 10px 0; /* Restore padding to make the menu look correct */
 }
+
 
 body {
     display: flex;
+}
+
+.home-feature {
+    position: relative;
+    padding-top: 50px;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 960px;
+}
+
+.home-feature video {
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(152, 201, 62, 0.5);
+    text-align: center;
+    align-content: center;
+    color: var(--mainText);
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
 h1 {
@@ -196,7 +251,7 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100px;
-    color: var(--mainText);
+    color: rgba(211, 211, 211, 0.62);
 }
 
 @media only screen and (max-width: 750px) {
@@ -228,5 +283,33 @@ footer {
         order: 1; /* Move it to come after the header image */
         margin-top: 10px;
         align-items: center; /* Center the hamburger icon */
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+    }
+
+    .nav-menu {
+        top: 170px;
+    }
+
+    .video-overlay {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        width: 300px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border: 1px solid var(--mainText)
+    }
+
+    .nav-menu li {
+        text-align: left;
+        transform: translateX(20px);
     }
 }

@@ -32,8 +32,16 @@
                 </ul>
             </nav>
         </header>
-        <body>   
-            <div class="feature-container">
+        <body>
+            <div class="home-feature">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline>
+                        <source src="../static/images/runner.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">NCI Team and Course Information</div>   
+                </div>
+            </div>
+            <!-- <div class="feature-container">
                 <div class="team-block">
                     <a href="{{ url_for('team') }}" class="button-link">
                         <button>
@@ -54,7 +62,7 @@
                             COURSE PERFORMANCE
                         </button>
                     </a>
-                </div>
+                </div> -->
             </div>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
