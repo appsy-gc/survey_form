@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/perform-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js"></script>
+    <title>NCI Team and Course Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<main>
+    <div class="body_container">
+        <header>
+            <div class="header_image">
+                <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+            </div>
+        </header>
+        <body>     
+            <div class="course_stats">
+                <h1>Course Performance</h1>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th class="schedule_heading" colspan="3">Nutrition L1</th>
+                        </tr>
+                        <tr>
+                            <th class="data-heading">Enrolled</th>
+                            <th class="data-heading">Not Started</th>
+                            <th class="data-heading">In Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course-data">1462</td>
+                            <td class="course-data">1422 <span class="percentage">(97%)</span></td>
+                            <td class="course-data">40</td>
+                        </tr>
+                        <tr class="blank-column"></tr>
+                        <tr>
+                            <th class="data-heading">Prog: 0% - 25%</th>
+                            <th class="data-heading">Prog: 25% - 50%</th>
+                            <th class="data-heading">Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course-data">29</td>
+                            <td class="course-data">6</td>
+                            <td class="course-data">21</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th class="schedule_heading" colspan="3">Business Mastery</th>
+                        </tr>
+                        <tr>
+                            <th class="data-heading">Enrolled</th>
+                            <th class="data-heading">Not Started</th>
+                            <th class="data-heading">In Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course-data">223</td>
+                            <td class="course-data">219 <span class="percentage">(98%)</span></td>
+                            <td class="course-data">4</td>
+                        </tr>
+                        <tr class="blank-column"></tr>
+                        <tr>
+                            <th class="data-heading">Prog: 0% - 25%</th>
+                            <th class="data-heading">Prog: 25% - 50%</th>
+                            <th class="data-heading">Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course-data">4</td>
+                            <td class="course-data">0</td>
+                            <td class="course-data">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </body>
+    </div>  
+    <footer>
+        <ul>
+            <li><a href="{{ url_for('index') }}">GO the Fuck HOME</a></li>
+            <li><a href="{{ url_for('performance') }}">Course Performance Page</a></li>
+            <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
+            <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+        </ul>
+    </footer>
+</main>
+</html>

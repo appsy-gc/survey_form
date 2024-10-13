@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/schedule-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js"></script>
+    <title>NCI Team and Course Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<main>
+    <div class="body_container">
+        <header>
+            <div class="header_image">
+                <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+            </div>
+        </header>
+        <body>     
+            <div class="live_schedule">
+                <h1>Live Q & A Schedules</h1>
+                {% for course, times in qna_times.items() %}
+                <table class="{{ course | lower | replace(' ', '_') }}_table">
+                    <thead>
+                        <tr>
+                            <th class="schedule_heading" colspan="3">{{ course }}</th>
+                        </tr>
+                        <tr>
+                            <th class="weekday_title">Mon</th>
+                            <th class="weekday_title">Wed</th>
+                            <th class="weekday_title">Thur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-time="{{ times.Mon }}">{ { times.Mon } E.S.T. }</td>
+                            <td data-time="{{ times.Wed }}">{ { times.Wed } E.S.T. }</td>
+                            <td data-time="{{ times.Thur }}">{ { times.Thur } E.S.T. }</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% endfor %}
+            </div>
+          
+            <div class="timezone_selector">
+                <label for="timezone">Select your timezone</label>
+                <select id="timezone">
+                    <!-- <option value="" selected disabled>Choose a timezone</option> -->
+                    <option value="America/New_York" selected>Eastern Time (US & Canada)</option>
+                    <option value="America/Chicago">Central Time (US & Canada)</option>
+                    <option value="America/Denver">Mountain Time (US & Canada)</option>
+                    <option value="America/Los_Angeles">Pacific Time (US & Canada)</option>
+                    <option value="Australia/Sydney">Sydney</option>
+                    <option value="Australia/Brisbane">Brisbane</option>
+                    <option value="Australia/Perth">Perth</option>
+                    <option value="Australia/Adelaide">Adelaide</option>
+                    <option value="Australia/Melbourne">Melbourne</option>
+                </select>
+            </div>    
+            <script>
+                document.getElementById('timezone').addEventListener('change', function () {
+                    let selectedTimezone = this.value;
+            
+                    if (selectedTimezone) {
+                        // Using Luxon to convert times correctly
+                        const DateTime = luxon.DateTime;
+            
+                        document.querySelectorAll('[data-time]').forEach(function (element) {
+                            // Get the original EST time
+                            let estTime = element.getAttribute('data-time'); // Time in EST (HH:mm format)
+                            let [hours, minutes] = estTime.split(':');
+            
+                            // Create DateTime object in EST
+                            let estDateTime = DateTime.fromObject(
+                                { hour: parseInt(hours), minute: parseInt(minutes) },
+                                { zone: 'America/New_York' }
+                            );
+            
+                            // Convert to the selected timezone
+                            let localTime = estDateTime.setZone(selectedTimezone);
+            
+                            // Format the time in HH:mm format
+                            element.innerHTML = `${localTime.toFormat('h:mm a')}`;
+                        });
+                    }
+                });
+            </script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Trigger the change event to set initial time conversion
+                    let timezoneSelect = document.getElementById('timezone');
+                    if (timezoneSelect.value) {
+                        timezoneSelect.dispatchEvent(new Event('change'));
+                    }
+                });
+            </script>
+        </body>
+    </div>  
+    <footer>
+        <ul>
+            <li><a href="{{ url_for('index') }}">GO the Fuck HOME</a></li>
+            <li><a href="{{ url_for('performance') }}">Course Performance Page</a></li>
+            <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
+            <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+        </ul>
+    </footer>
+</main>
+</html>

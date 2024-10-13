@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/team-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js"></script>
+    <title>NCI Team and Course Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<main>
+    <div class="body_container">
+        <header>
+            <div class="header_image">
+                <img class="header_logo" src="../static/images/NCI-Logo-Landscape.png" alt="NCI header logo">
+            </div>
+        </header>
+        <body>     
+            <div class="team_times">
+                <h1>Local Team Times</h1>
+                <table class="team_table">
+                    <thead>
+                        <tr>
+                            <th>Team Member</th>
+                            <th>Local Time & Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for person in people_times %}
+                        <tr>
+                            <td class="member">{{ person.name }}</td>
+                            <td class="local_time">{{ person.current_time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+              
+            <!-- <script>
+                document.getElementById('timezone').addEventListener('change', function () {
+                    let selectedTimezone = this.value;
+            
+                    if (selectedTimezone) {
+                        // Using Luxon to convert times correctly
+                        const DateTime = luxon.DateTime;
+            
+                        document.querySelectorAll('[data-time]').forEach(function (element) {
+                            // Get the original EST time
+                            let estTime = element.getAttribute('data-time'); // Time in EST (HH:mm format)
+                            let [hours, minutes] = estTime.split(':');
+            
+                            // Create DateTime object in EST
+                            let estDateTime = DateTime.fromObject(
+                                { hour: parseInt(hours), minute: parseInt(minutes) },
+                                { zone: 'America/New_York' }
+                            );
+            
+                            // Convert to the selected timezone
+                            let localTime = estDateTime.setZone(selectedTimezone);
+            
+                            // Format the time in HH:mm format
+                            element.innerHTML = `${localTime.toFormat('h:mm a')}`;
+                        });
+                    }
+                });
+            </script> -->
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Trigger the change event to set initial time conversion
+                    let timezoneSelect = document.getElementById('timezone');
+                    if (timezoneSelect.value) {
+                        timezoneSelect.dispatchEvent(new Event('change'));
+                    }
+                });
+            </script>
+        </body>
+    </div>  
+    <footer>
+        <ul>
+            <li><a href="{{ url_for('index') }}">GO the Fuck HOME</a></li>
+            <li><a href="{{ url_for('performance') }}">Course Performance Page</a></li>
+            <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
+            <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+        </ul>
+    </footer>
+</main>
+</html>

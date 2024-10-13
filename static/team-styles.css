@@ -52,27 +52,90 @@ p {
     color: var(--mainText);
 }
 
-.feature-container {
+table {
+    background-color: var(--chSpecial);
+    border-radius: 0.5rem;
+    width: var(--tableWidth);
+    margin-bottom: 30px;
+    box-shadow: var(--boxShadow);
+    max-width: 660px;
+}
+
+table th {
+    color: black;
+    font-size: 1.2rem;
+}
+
+table td {
+    color: var(--mainText)
+}
+
+.team_times,
+.live_schedule {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-[class*="block"] {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    height: 250px;
-    border: 1px solid var(--chSpecial);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    color: var(--mainText)
+.team_table th,
+.team_table td {
+    padding: 10px
 }
 
-[class*="block"] img {
-    width: 225px;
-    height: 225px;
+.team_table th:nth-child(1) {
+    text-align: left;
+}
+
+.member {
+    font-weight: bold;
+    transform: translateX(10px);
+}
+
+.local_time {
+    text-align: center;
+}
+
+.nutrition_l1_table,
+.nutrition_l2_table,
+.business_mastery_table {
+    text-align: center;
+    padding: 10px;
+}
+
+.nutrition_l1_table td,
+.nutrition_l2_table td,
+.business_mastery_table td,
+.team_table td {
+    font-size: 1.5rem;
+}
+
+.weekday_title {
+    font-weight: 400;
+}
+
+.schedule_heading {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+}
+
+.timezone_selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+}
+
+.timezone_selector label {
+    color: var(--mainText);
+    margin-bottom: 10px;
+}
+
+select {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--chSpecial);
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
     border-radius: 5px;
 }
 
