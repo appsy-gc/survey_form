@@ -21,10 +21,10 @@ def team():
     # Define timezones for team members
     people_timezones = {
         "Danielle": "America/Phoenix",
-        "Micaela": "America/New_York",
-        "Brittany": "America/New_York",
         "Alan": "America/Phoenix",
         "Tyler": "America/Chicago",
+        "Micaela": "America/New_York",
+        "Brittany": "America/New_York",
         "Appsy": "Australia/Brisbane",
         "Gav/HO": "Australia/Sydney"
     }
