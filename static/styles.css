@@ -128,7 +128,7 @@ img.header_logo {
 
 body {
     display: flex;
-    background-image: url(../static/images/nut-bg.jpg);
+    background-image: url(../static/images/nut-bg.webp);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
