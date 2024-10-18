@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <main>
-    <div class="body_container">
+    <div class="body-container">
         <header>
             <div class="header-grid">
                 <div class="hamburger-menu" id="hamburger-menu">
@@ -26,21 +26,32 @@
             <nav class="nav-menu" id="nav-menu">
                 <ul>
                     <li><a href="{{ url_for('index') }}">HOME</a></li>
-                    <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
-                    <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
                     <li><a href="{{ url_for('performance') }}">Course Performance</a></li>
+                    <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+                    <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
                 </ul>
             </nav>
         </header>
         <body>
-            <div class="home-feature">
+            <div class="feature-container">
+                <div class="performance-block">
+                    <a href="{{ url_for('performance') }}">Course Performance</a>
+                </div>
+                <div class="schedule-block">
+                    <a href="{{ url_for('schedules') }}">Live Q&A Schedules</a>
+                </div>
+                <div class="team-block">
+                    <a href="{{ url_for('team') }}">The NCI Team</a>
+                </div>
+            </div>
+            <!-- <div class="home-feature">
                 <div class="video-container">
                     <video autoplay muted loop playsinline>
                         <source src="../static/images/runner.mp4" type="video/mp4">
                     </video>
                     <div class="video-overlay">NCI Team and Course Information</div>   
                 </div>
-            </div>
+            </div> -->
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     const hamburgerMenu = document.getElementById('hamburger-menu');

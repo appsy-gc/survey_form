@@ -28,79 +28,90 @@
             <nav class="nav-menu" id="nav-menu">
                 <ul>
                     <li><a href="{{ url_for('index') }}">HOME</a></li>
-                    <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
-                    <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
                     <li><a href="{{ url_for('performance') }}">Course Performance</a></li>
+                    <li><a href="{{ url_for('schedules') }}">Live Q&A Schedules</a></li>
+                    <li><a href="{{ url_for('team') }}">Team Local Times</a></li>
                 </ul>
             </nav>
         </header>
         <body>     
-            <div class="course_stats">
+            <div class="course-stats">
                 <h1>Course Performance</h1>
-                <table class="performance-table">
-                    <thead>
-                        <tr>
-                            <th class="schedule_heading" colspan="3">Nutrition L1</th>
-                        </tr>
-                        <tr>
-                            <th class="data-heading">Enrolled</th>
-                            <th class="data-heading">Not Started</th>
-                            <th class="data-heading">In Progress</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="course-data">1463</td>
-                            <td class="course-data">1421 <span class="percentage">(97%)</span></td>
-                            <td class="course-data">42</td>
-                        </tr>
-                        <tr class="blank-column"></tr>
-                        <tr>
-                            <th class="data-heading">Prog: 0% - 25%</th>
-                            <th class="data-heading">Prog: 25% - 50%</th>
-                            <th class="data-heading">Completed</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="course-data">27</td>
-                            <td class="course-data">8</td>
-                            <td class="course-data">21</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="performance-table">
-                    <thead>
-                        <tr>
-                            <th class="schedule_heading" colspan="3">Business Mastery</th>
-                        </tr>
-                        <tr>
-                            <th class="data-heading">Enrolled</th>
-                            <th class="data-heading">Not Started</th>
-                            <th class="data-heading">In Progress</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="course-data">223</td>
-                            <td class="course-data">219 <span class="percentage">(98%)</span></td>
-                            <td class="course-data">4</td>
-                        </tr>
-                        <tr class="blank-column"></tr>
-                        <tr>
-                            <th class="data-heading">Prog: 0% - 25%</th>
-                            <th class="data-heading">Prog: 25% - 50%</th>
-                            <th class="data-heading">Completed</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="course-data">4</td>
-                            <td class="course-data">0</td>
-                            <td class="course-data">0</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="performance-data">
+
+                    <div class="performance-l1">
+                        <h3>Level 1 Nutrition</h3>
+                        <div class="main-grid">
+                            <div class="progress-grid">
+                                <div class="progress-name-one">In Progress</div>
+                                <div class="progress-qty-one">44</div>
+                                <div class="progress-name-two"><img src="../static/images/bars_none.png"></div>
+                                <div class="progress-qty-two">27</div>
+                                <div class="progress-name-three"><img src="../static/images/bars_one.png"></div>
+                                <div class="progress-qty-three">10</div>
+                                <div class="progress-name-four"><img src="../static/images/bars_two.png"></div>
+                                <div class="progress-qty-four">3</div>
+                                <div class="progress-name-five"><img src="../static/images/bars_three.png"></div>
+                                <div class="progress-qty-five">4</div>
+                                <div class="progress-name-six"><img src="../static/images/bars_all.png"></div>
+                                <div class="progress-qty-six">22</div>
+                            </div>
+                            <div class="survey-grid">
+                                <div class="survey-grid-title">Student Experience Rating</div>
+                                <div class="survey-grid-rating">7/10</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-bm">
+                        <h3>Business Mastery 2.0</h3>
+                        <div class="main-grid">
+                            <div class="progress-grid">
+                                <div class="progress-name-one">In Progress</div>
+                                <div class="progress-qty-one">6</div>
+                                <div class="progress-name-two"><img src="../static/images/bars_none.png"></div>
+                                <div class="progress-qty-two">6</div>
+                                <div class="progress-name-three"><img src="../static/images/bars_one.png"></div>
+                                <div class="progress-qty-three">0</div>
+                                <div class="progress-name-four"><img src="../static/images/bars_two.png"></div>
+                                <div class="progress-qty-four">0</div>
+                                <div class="progress-name-five"><img src="../static/images/bars_three.png"></div>
+                                <div class="progress-qty-five">0</div>
+                                <div class="progress-name-six"><img src="../static/images/bars_all.png"></div>
+                                <div class="progress-qty-six">0</div>
+                            </div>
+                            <div class="survey-grid">
+                                <div class="survey-grid-title">Student Experience Rating</div>
+                                <div class="survey-grid-rating">None</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-l2">
+                        <h3>Level 2 Nutrition</h3>
+                        <div class="main-grid">
+                            <div class="progress-grid">
+                                <div class="progress-name-one">In Progress</div>
+                                <div class="progress-qty-one">0</div>
+                                <div class="progress-name-two"><img src="../static/images/bars_none.png"></div>
+                                <div class="progress-qty-two">0</div>
+                                <div class="progress-name-three"><img src="../static/images/bars_one.png"></div>
+                                <div class="progress-qty-three">0</div>
+                                <div class="progress-name-four"><img src="../static/images/bars_two.png"></div>
+                                <div class="progress-qty-four">0</div>
+                                <div class="progress-name-five"><img src="../static/images/bars_three.png"></div>
+                                <div class="progress-qty-five">0</div>
+                                <div class="progress-name-six"><img src="../static/images/bars_all.png"></div>
+                                <div class="progress-qty-six">0</div>
+                            </div>
+                            <div class="survey-grid">
+                                <div class="survey-grid-title">Student Experience Rating</div>
+                                <div class="survey-grid-rating">None</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
             <script>
                 document.addEventListener('DOMContentLoaded', function () {

@@ -1,46 +1,116 @@
-table {
-    background-color: var(--chSpecial);
-    border-radius: 0.5rem;
-    width: var(--tableWidth);
-    margin-bottom: 30px;
-    box-shadow: var(--boxShadow);
-    max-width: 660px;
+:root {
+    /* Global Variables */
+    --nciBackground: #3498db;
+    --nciSpecial: #d0fa69;
+    --chSpecial: #99c93e;
+    --mainText: white;
+    --tableWidth: 60vw;
+    --boxShadow: 2px 2px 5px 0px rgba(255,255,255,1);
+    --textShadow: 2px 2px 2px rgba(181, 239, 73, 0.73);
+    
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    background-color: black;
 }
 
-table td {
-    color: var(--mainText)
-}
-
-.course_stats {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.performance-table {
+h3 {
     text-align: center;
-    padding: 10px;
-}
-
-.performance-table td {
+    color: var(--nciBackground);
+    margin: 30px 0 10px 0;
     font-size: 1.3rem;
 }
 
-.schedule_heading {
-    font-size: 1.5rem;
-    padding-bottom: 10px;
+.course-stats {
+    color: var(--mainText);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
-.data-heading {
-    font-weight: 400;
+.performance-data {
+    width: 80vw;
+    background-color: black;
+    border-radius: 20px;
+    padding-bottom: 20px;
+    box-shadow: var(--boxShadow);
 }
 
-.blank-column {
-    height: 20px;
+.main-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: 200px;
 }
 
-.percentage {
-    font-size: 1rem;
+.progress-grid {
+    display: grid;
+    grid-column: 1;
+    grid-template-areas: repeat(6, 1fr) / 2fr 1fr;
+    align-items: center;
+    width: 100%;
+}
+
+.progress-grid > div:nth-child(odd) {
+    grid-column: 1; /* Place all odd children in the first column (names) */
+    text-align: right;
+}
+
+.progress-grid > div:nth-child(even) {
+    grid-column: 2; /* Place all even children in the second column (quantities) */
+    padding: 0 30px;
+    text-align: center;
+}
+
+[class*="progress"] img {
+    width: 60%;
+}
+
+.progress-qty-six {
+    font-size: 1.2rem;
+}
+
+[class*="progress-qty"] {
+    animation-name: grow;
+    animation-duration: 1s;
+}
+
+.survey-grid-rating {
+    animation-name: grow;
+    animation-duration: 1s;
+}
+
+.survey-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    text-align: center;
+}
+
+[class*="survey-grid"] {
+    padding: 10px 0;
+}
+
+.survey-grid-title {
+    grid-row: 1;
+    grid-column: 1;
+    font-weight: bold;
+}
+
+.survey-grid-rating {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--nciSpecial);
+}
+
+@keyframes grow {
+    from {transform: scale(0);}
+    to {transform: scale(1);}
 }
 
 @media only screen and (max-width: 750px) {
@@ -57,5 +127,41 @@ table td {
     .performance-table td,
     .performance-table th {
         font-size: 1rem;
+    }
+
+    [class*="progress"] img {
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 560px) {
+    .performance-data {
+        width: 450px;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .performance-data {
+        display: flex;
+        justify-content: center;
+        width: 90vw;
+    }
+
+    .main-grid {
+        width: 350px;
+    }
+
+    [class*="progress"] img {
+        width: 70%;
+    }
+
+    [class*="performance"] {
+        margin: 0 30px;
+    }
+
+    .performance-l1,
+    .performance-l2,
+    .performance-bm {
+        width: 100%;
     }
 }

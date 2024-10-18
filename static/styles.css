@@ -31,12 +31,15 @@ main {
 
 /* Header layout */
 header {
-    height: 100px;
+    height: 120px;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 0 20px;
     position: relative;
+    background-color: black;
+    position: relative;
+    z-index: 3;
 }
 
 /* Header grid to align hamburger and logo */
@@ -51,6 +54,7 @@ header {
     cursor: pointer;
     justify-self: start; /* Align to the start of the first column */
     transform: scale(0.75);
+    z-index: 3;
 }
 
 .bar {
@@ -70,6 +74,7 @@ header {
 
 img.header_logo {
     width: 50%;
+    margin-bottom: 20px;
 }
 
 /* Navigation Menu - Hidden by default */
@@ -88,6 +93,7 @@ img.header_logo {
     padding: 0; /* No padding initially */
     z-index: 100; /* Make sure the menu appears on top */
     transition: all 0.5s ease; /* Smooth transition for height, opacity, and padding */
+    z-index: 3;
 }
 
 /* Navigation menu items */
@@ -95,17 +101,20 @@ img.header_logo {
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 
 .nav-menu li {
     margin: 10px 0;
     text-align: center;
+    position: relative;
 }
 
 .nav-menu a {
     text-decoration: none;
     color: var(--mainText);
     font-size: 1.5rem;
+
 }
 
 /* Show the nav menu when the "show" class is added */
@@ -119,45 +128,21 @@ img.header_logo {
 
 body {
     display: flex;
+    background-image: url(../static/images/nut-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-.home-feature {
-    position: relative;
-    padding-top: 50px;
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.video-container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: auto;
-    max-width: 960px;
-}
-
-.home-feature video {
-    object-fit: cover;
-}
-
-.video-overlay {
+body::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(152, 201, 62, 0.5);
-    text-align: center;
-    align-content: center;
-    color: var(--mainText);
-    font-size: 2.5rem;
-    font-weight: bold;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.715);
+    z-index: 1;
 }
 
 h1 {
@@ -165,6 +150,7 @@ h1 {
     text-align: center;
     width: var(--tableWidth);
     text-shadow: var(--textShadow);
+    margin: 50px 0 30px 0;
 }
 
 p {
@@ -172,7 +158,7 @@ p {
 }
 
 table {
-    background-color: var(--chSpecial);
+    background-color: black;
     border-radius: 0.5rem;
     width: var(--tableWidth);
     margin-bottom: 30px;
@@ -181,7 +167,7 @@ table {
 }
 
 table th {
-    color: black;
+    color: var(--mainText);
     font-size: 1.2rem;
 }
 
@@ -193,6 +179,13 @@ table td {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
+    width: 100%; /* Make it responsive */
+    max-width: 1200px; /* Set a max-width to control the size */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    position: relative;
+    z-index: 2;
 }
 
 [class*="block"] {
@@ -201,19 +194,21 @@ table td {
     align-items: center;
     width: 250px;
     height: 150px;
-    background-color: var(--chSpecial);
+    background-color: black;
     border-radius: 10px;
-    margin-bottom: 20px;
-    color: var(--mainText);
+    margin-bottom: 30px;
+    color: var(--chSpecial);
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
+    box-shadow: var(--boxShadow);
 }
 
 [class*="block"] img {
     width: 225px;
     height: 225px;
     border-radius: 5px;
+
 }
 
 [class*="block"] a {
@@ -252,6 +247,9 @@ footer {
     align-items: center;
     height: 100px;
     color: rgba(211, 211, 211, 0.62);
+    background-color: black;
+    position: relative;
+    z-index: 2;
 }
 
 @media only screen and (max-width: 750px) {
@@ -293,8 +291,16 @@ footer {
         top: 170px;
     }
 
-    .video-overlay {
-        font-size: 2rem;
+    .feature-container {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .feature-container {
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 200px;
     }
 }
 
@@ -312,4 +318,18 @@ footer {
         text-align: left;
         transform: translateX(20px);
     }
+
+    .body-container {
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+    }
+
+    .feature-container {
+        width: 100%; /* Ensure it takes full width up to max-width */
+        max-width: 1200px; /* Keeps it centered within this max-width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 }
