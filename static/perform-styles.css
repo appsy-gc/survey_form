@@ -30,12 +30,22 @@ h3 {
 }
 
 .performance-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 80vw;
     background-color: black;
     border-radius: 20px;
     padding-bottom: 20px;
     box-shadow: var(--boxShadow);
+    margin-bottom: 30px;
 }
+
+.performance-l1,
+    .performance-l2,
+    .performance-bm {
+        width: 95%;
+    }
 
 .main-grid {
     display: grid;
@@ -59,7 +69,7 @@ h3 {
 
 .progress-grid > div:nth-child(even) {
     grid-column: 2; /* Place all even children in the second column (quantities) */
-    padding: 0 30px;
+    padding: 0 20px;
     text-align: center;
 }
 
@@ -143,6 +153,7 @@ h3 {
 @media only screen and (min-width: 1300px) {
     .performance-data {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         width: 90vw;
     }

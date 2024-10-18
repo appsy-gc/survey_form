@@ -69,7 +69,8 @@ table td {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%
+    width: 100%;
+    margin-bottom: 30px;
 }
 
 .timezone_selector label {
