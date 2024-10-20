@@ -75,10 +75,14 @@ h3 {
 
 [class*="progress"] img {
     width: 60%;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slide-in 1s ease-out forwards;
 }
 
 .progress-qty-six {
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 [class*="progress-qty"] {
@@ -116,6 +120,20 @@ h3 {
     font-size: 2rem;
     font-weight: bold;
     color: var(--nciSpecial);
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0.8;
+    }
 }
 
 @keyframes grow {
